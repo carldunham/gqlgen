@@ -176,7 +176,7 @@ func (m *Plugin) MutateConfig(cfg *config.Config) error {
 					Name:        name,
 					Type:        typ,
 					Description: field.Description,
-					Tag:         `json:"` + field.Name + `"`,
+					Tag:         fmt.Sprintf(`json:"%[1]s" bson:"%[1]s"`, field.Name),
 				})
 			}
 
