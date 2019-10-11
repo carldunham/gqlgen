@@ -92,3 +92,7 @@ interface Foo_Barer {
 type _Foo_Barr implements  Foo_Barer {
     name: String!
 }
+
+type FieldOverrides {
+    name: String
+}

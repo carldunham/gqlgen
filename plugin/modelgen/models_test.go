@@ -30,6 +30,11 @@ func TestModelGeneration(t *testing.T) {
 	require.True(t, cfg.Models.UserDefined("EnumWithDescription"))
 	require.True(t, cfg.Models.UserDefined("InterfaceWithDescription"))
 	require.True(t, cfg.Models.UserDefined("UnionWithDescription"))
+	require.True(t, cfg.Models.UserDefined("FieldOverrides"))
+
+	// TODO: not sure if this is a sufficient test, should examine ./out/generated.go
+	//
+	require.Equal(t, "NotName", cfg.Models["FieldOverrides"].Fields["name"].FieldName)
 
 	t.Run("no pointer pointers", func(t *testing.T) {
 		generated, err := ioutil.ReadFile("./out/generated.go")
@@ -54,10 +59,10 @@ func TestModelGeneration(t *testing.T) {
 		fileText := string(file)
 
 		expectedTags := []string{
-			`json:"missing2" database:"MissingTypeNotNullmissing2"`,
-			`json:"name" database:"MissingInputname"`,
-			`json:"missing2" database:"MissingTypeNullablemissing2"`,
-			`json:"name" database:"TypeWithDescriptionname"`,
+			`json:"missing2" database:"MissingTypeNotNullMissing2"`,
+			`json:"name" database:"MissingInputName"`,
+			`json:"missing2" database:"MissingTypeNullableMissing2"`,
+			`json:"name" database:"TypeWithDescriptionName"`,
 		}
 
 		for _, tag := range expectedTags {
