@@ -16,6 +16,13 @@ func TestWithEntities(t *testing.T) {
 	require.Equal(t, "findHelloByName", cfg.Schema.Types["Entity"].Fields[1].Name)
 	require.Equal(t, "findWorldByFooAndBar", cfg.Schema.Types["Entity"].Fields[2].Name)
 
+	require.Equal(t, "upc", cfg.Schema.Types["ExternalExtension"].Fields[0].Name)
+	require.Equal(t, "reviews", cfg.Schema.Types["ExternalExtension"].Fields[1].Name)
+	require.Equal(t, "reviewsWith", cfg.Schema.Types["ExternalExtension"].Fields[2].Name)
+
+	require.Equal(t, "input", cfg.Schema.Types["ExternalExtension"].Fields[2].Arguments[0].Name)
+	require.Equal(t, "ReviewInput", cfg.Schema.Types["ExternalExtension"].Fields[2].Arguments[0].Type.NamedType)
+
 	require.NoError(t, f.MutateConfig(cfg))
 }
 

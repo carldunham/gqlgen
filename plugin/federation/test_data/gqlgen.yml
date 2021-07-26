@@ -1,6 +1,6 @@
 schema:
   - "test_data/schema.graphql"
 exec:
-  filename: graph/generated/exec.go
+  filename: test_data/out/exec.go
 federation:
-  filename: graph/generated/federation.go
+  filename: test_data/out/federation.go
