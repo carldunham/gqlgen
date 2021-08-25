@@ -1,8 +1,9 @@
 package testserver
 
 type PtrToPtrOuter struct {
-	Name  string
-	Inner *PtrToPtrInner
+	Name        string
+	Inner       *PtrToPtrInner
+	StupidInner *******PtrToPtrInner
 }
 
 type PtrToPtrInner struct {
@@ -11,8 +12,9 @@ type PtrToPtrInner struct {
 }
 
 type UpdatePtrToPtrOuter struct {
-	Name  *string
-	Inner **UpdatePtrToPtrInner
+	Name        *string
+	Inner       **UpdatePtrToPtrInner
+	StupidInner ********PtrToPtrInner
 }
 
 type UpdatePtrToPtrInner struct {

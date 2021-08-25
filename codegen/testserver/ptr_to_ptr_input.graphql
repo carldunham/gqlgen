@@ -1,6 +1,7 @@
 type PtrToPtrOuter {
     name: String!
     inner: PtrToPtrInner
+    stupidInner: PtrToPtrInner
 }
 
 type PtrToPtrInner {
@@ -11,6 +12,7 @@ type PtrToPtrInner {
 input UpdatePtrToPtrOuter {
     name: String
     inner: UpdatePtrToPtrInner
+    stupidInner: UpdatePtrToPtrInner
 }
 
 input UpdatePtrToPtrInner {
