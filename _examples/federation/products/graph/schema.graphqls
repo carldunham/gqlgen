@@ -2,14 +2,18 @@ extend type Query {
     topProducts(first: Int = 5): [Product]
 }
 
-type Manufacturer @key(fields: "id") {
+interface Producter {
+    id: String!
+}
+
+type Manufacturer implements Producter @key(fields: "id") {
     id: String!
     name: String!
 }
 
 type Product @key(fields: "manufacturer { id } id") @key(fields: "upc") {
     id: String!
-    manufacturer: Manufacturer!
+    manufacturer: Producter!
     upc: String!
     name: String!
     price: Int!
